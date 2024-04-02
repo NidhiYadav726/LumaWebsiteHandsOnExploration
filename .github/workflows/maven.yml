@@ -23,4 +23,16 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Run Selenium tests
       run: mvn test
+    # Step to capture test results as artifacts
+    - name: Archive test results
+      if: always()  # Ensure this step runs even if the previous steps fail
+      uses: actions/upload-artifact@v2
+      with:
+          name: test-results
+          path: tests_output 
+    - name: Send notifications
+      if: failure() 
+      run: |
+          
+          echo "Test failures occurred. Please check the test reports for details."
    
