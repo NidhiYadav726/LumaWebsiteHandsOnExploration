@@ -18,10 +18,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Set up Chrome WebDriver
-      uses: webdrivers/action@v3
-      with:
-        version: latest
+   
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Run Selenium tests
