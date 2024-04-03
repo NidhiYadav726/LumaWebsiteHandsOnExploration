@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import java.time.Duration;
 
-public class LumaWebOperations {
+public class LumaWebOperationsTest {
 
     public static ChromeOptions options;
     public static WebDriver driver;
@@ -20,8 +20,8 @@ public class LumaWebOperations {
     public void VisitHomePage() {
         options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        System.setProperty("WebDriver.chrome.driver", "/home/Desktop/maven/LumaWebsite/src/test/resources/chromedriver");
-        driver = new ChromeDriver(options);
+
+        driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get(" https://magento.softwaretestingboard.com/");
