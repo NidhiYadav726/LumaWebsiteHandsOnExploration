@@ -244,7 +244,7 @@ public class lumaWebOperationsTest {
 
 //printing size of cart
         WebElement cartSizeElement = driver.findElement(By.cssSelector(".counter-number"));
-        cartSizeElement.click();
+       // cartSizeElement.click();
         String cartSize = cartSizeElement.getText();
         System.out.println("Cart Size: " + cartSize);
 
