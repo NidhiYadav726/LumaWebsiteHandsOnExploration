@@ -135,7 +135,7 @@ public class lumaWebOperationsTest {
     @Test(priority = 4)
     public void visitHome() {
         WebElement backToHome = driver.findElement(By.xpath("//a[@class='logo']"));
-        driver.manage().timeouts().implicitlyWaits(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         backToHome.click();
     }
 
