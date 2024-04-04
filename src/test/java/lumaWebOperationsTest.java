@@ -132,9 +132,9 @@ public class lumaWebOperationsTest {
         backToHome.click();
     }
 
- @Test(priority = 4)
+@Test(priority = 4)
 public void visitHome() {
-    // Wait for the logo element to be visible
+    // Wait for the logo element to be both present and visible
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     WebElement logo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='logo']")));
 
