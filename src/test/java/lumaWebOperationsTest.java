@@ -132,13 +132,15 @@ public class lumaWebOperationsTest {
         backToHome.click();
     }
 
-    @Test(priority = 4)
-    public void visitHome() {
-        WebElement backToHome = driver.findElement(By.xpath("//a[@class='logo']"));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        WebDriverWait wait8 = new WebDriverWait(driver, Duration.ofSeconds(8));
-        backToHome.click();
-    }
+ @Test(priority = 4)
+public void visitHome() {
+    // Wait for the logo element to be visible
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebElement logo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='logo']")));
+
+    // Click the logo element to navigate back to the home page
+    logo.click();
+}
 
     @Test(priority = 5)
     public void myWishlist() {
