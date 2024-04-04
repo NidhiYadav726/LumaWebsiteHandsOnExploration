@@ -134,7 +134,7 @@ public class lumaWebOperationsTest {
 
     @Test(priority = 4)
     public void visitHome() {
-        WebElement backToHome = driver.findElement(By.cssSelector(".page-wrapper > header > div.header.content > a > img"));
+        WebElement backToHome = driver.findElement(By.xpath("//a[@class='logo']"));
         backToHome.click();
     }
 
@@ -187,7 +187,7 @@ public class lumaWebOperationsTest {
 
     @Test(priority = 6)
     public void AddToCompare() {
-        WebElement backToHome = driver.findElement(By.cssSelector(".page-wrapper > header > div.header.content > a > img"));
+        WebElement backToHome = driver.findElement(By.xpath("//a[@class='logo']"));
         backToHome.click();
 
 //first item addition to comparison list
