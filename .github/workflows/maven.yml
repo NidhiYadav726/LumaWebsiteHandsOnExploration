@@ -19,7 +19,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Run Selenium tests
-      run: mvn clean test -Dwebdriver.chrome.driver=chromedriver -Dwebdriver.chrome.args="--headless --disable-gpu" -Dmaven.test.failure.ignore=true
+      run: mvn clean test 
 
     # Step to capture test results as artifacts
     - name: Archive test results
