@@ -18,7 +18,8 @@ public class lumaWebOperationsTest {
 
     @BeforeTest
     public void VisitHomePage() {
-        options = new ChromeOptions();
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
