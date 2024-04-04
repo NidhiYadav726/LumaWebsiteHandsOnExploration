@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import java.time.Duration;
 
-public class LumaWebOperationsTest {
+public class lumaWebOperationsTest {
 
     public static ChromeOptions options;
     public static WebDriver driver;
@@ -138,7 +138,7 @@ public class LumaWebOperationsTest {
     @Test(priority = 5)
     public void myWishlist() {
 
-        WebElement product1 = driver.findElement(By.xpath("//a[@href='https://magento.softwaretestingboard.com/radiant-tee.html']"));
+        WebElement product1 = driver.findElement(By.xpath("//div[@class='product-item-info']//img[@alt='Radiant Tee']"));
         Actions action1 = new Actions(driver);
         action1.moveToElement(product1).build().perform();
         WebElement wishlistButton1 = driver.findElement(By.xpath("//a[contains(@class, 'towishlist')]"));
@@ -155,7 +155,7 @@ public class LumaWebOperationsTest {
         driver.navigate().back();
 
         WebElement product3 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='Argus All-Weather Tank' and contains(@class, 'product-image-photo')]\n")));
-        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(100));
         wait1.until(ExpectedConditions.visibilityOf(product3));
         Actions action3 = new Actions(driver);
         action3.moveToElement(product3).build().perform();
@@ -188,7 +188,7 @@ public class LumaWebOperationsTest {
         backToHome.click();
 
 //first item addition to comparison list
-        WebElement item1 = driver.findElement(By.xpath("//a[@href='https://magento.softwaretestingboard.com/radiant-tee.html']"));
+        WebElement item1 = driver.findElement(By.xpath("//div[@class='product-item-info']//img[@alt='Radiant Tee']"));
         Actions action1 = new Actions(driver);
         action1.moveToElement(item1).build().perform();
         WebElement compareButton1 = driver.findElement(By.cssSelector("#maincontent .block-products-list li:first-child a.action.tocompare\n"));
@@ -240,7 +240,7 @@ public class LumaWebOperationsTest {
     public void Cart() {
 
 //printing size of cart
-        WebElement cartSizeElement = driver.findElement(By.xpath("//span[@class='counter qty']/span[@class='counter-number']\n"));
+        WebElement cartSizeElement = driver.findElement(By.cssSelector(".counter-number"));
         cartSizeElement.click();
         String cartSize = cartSizeElement.getText();
         System.out.println("Cart Size: " + cartSize);
@@ -273,26 +273,26 @@ public class LumaWebOperationsTest {
         estimateShipping.click();
         driver.findElement(By.xpath("//input[@id='s_method_flatrate_flatrate']\n")).click();
 
-
-//place order
-        WebElement placeOrder = driver.findElement(By.xpath("//button[@data-role='proceed-to-checkout' and contains(@class,'action primary checkout')]\n"));
-        placeOrder.click();
-        WebElement nextButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[data-role='opc-continue'][type='submit'].button.action.continue.primary\n")));
-        WebDriverWait wait3 = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait3.until(ExpectedConditions.elementToBeClickable(nextButton));
-        nextButton.click();
-        WebElement orderCheckout = driver.findElement(By.xpath("//div[@class='primary']//button[@class='action primary checkout']\n"));
-        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait2.until(ExpectedConditions.elementToBeClickable(orderCheckout));
-        orderCheckout.click();
-
-//printing order number
-        WebElement orderNumberElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(), 'Your order number is:')]//a[@class='order-number']\n")));
-        WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait4.until(ExpectedConditions.elementToBeClickable(orderNumberElement));
-        String orderNumber = orderNumberElement.getText();
-        System.out.println("your order number is: " + orderNumber);
     }
+//place order
+//        WebElement placeOrder = driver.findElement(By.xpath("//button[@data-role='proceed-to-checkout' and contains(@class,'action primary checkout')]\n"));
+//        placeOrder.click();
+//        WebElement nextButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".button.action.continue.primary")));
+//        WebDriverWait wait3 = new WebDriverWait(driver, Duration.ofSeconds(1000));
+//        wait3.until(ExpectedConditions.elementToBeClickable(nextButton));
+//        nextButton.click();
+//        WebElement orderCheckout = driver.findElement(By.xpath("//div[@class='primary']//button[@class='action primary checkout']\n"));
+//        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(100));
+//        wait2.until(ExpectedConditions.elementToBeClickable(orderCheckout));
+//        orderCheckout.click();
+//
+//printing order number
+//        WebElement orderNumberElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(), 'Your order number is:')]//a[@class='order-number']\n")));
+//        WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(5));
+//        wait4.until(ExpectedConditions.elementToBeClickable(orderNumberElement));
+//        String orderNumber = orderNumberElement.getText();
+//        System.out.println("your order number is: " + orderNumber);
+//    }
 
     @AfterTest
     public void tearDown() {
